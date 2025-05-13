@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone-code') {
             steps {
-                git branch: 'main', url: 'https://github.com/automationsaan/docker-projects.git'
+                git branch: 'main', url: 'https://github.com/automationsaan/currency-conversion-app.git'
             }
         }
     }
