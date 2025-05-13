@@ -18,23 +18,5 @@ environment {
                 }
             }
         }
-
-    //     stage('Test') {
-    //         steps {
-    //             script {
-    //                 echo 'Testing...'
-    //                 sh 'mvn test'
-    //             }
-    //         }
-    //     }
-
-    //     stage('Deploy') {
-    //         steps {
-    //             script {
-    //                 echo 'Deploying...'
-    //                 sh 'mvn deploy'
-    //             }
-    //         }
-    //     }
-    // }
+    }
 }
