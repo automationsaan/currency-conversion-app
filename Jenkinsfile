@@ -5,11 +5,36 @@ pipeline {
         }
     }
 
+environment {
+    PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
+}
+
     stages {
-        stage('Clone-code') {
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/automationsaan/currency-conversion-app.git'
+                script {
+                    echo 'Building...'
+                    sh 'mvn clean package'
+                }
             }
         }
-    }
+
+    //     stage('Test') {
+    //         steps {
+    //             script {
+    //                 echo 'Testing...'
+    //                 sh 'mvn test'
+    //             }
+    //         }
+    //     }
+
+    //     stage('Deploy') {
+    //         steps {
+    //             script {
+    //                 echo 'Deploying...'
+    //                 sh 'mvn deploy'
+    //             }
+    //         }
+    //     }
+    // }
 }
