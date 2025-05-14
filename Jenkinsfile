@@ -5,10 +5,10 @@ pipeline {
         }
     }
 
-//create environment variable for maven path    
-environment {
-    PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
-}
+    // Create environment variable for Maven path
+    environment {
+        PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
+    }
 
     stages {
         stage('Build') {
@@ -19,14 +19,16 @@ environment {
                 }
             }
         }
-    }
-    stage('SonarQube analysis') {
-    environment {
-      scannerHome = tool 'sonarqube-scanner'
-    }
-    steps{
-    withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-    }
-}
+
+        stage('SonarQube analysis') {
+            environment {
+                scannerHome = tool 'sonarqube-scanner'
+            }
+            steps {
+                withSonarQubeEnv('sonarqube-server') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
+    } // Close the stages block
+} // Close the pipeline block
