@@ -14,8 +14,19 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo 'Building...'
+                    echo "----------- build started ----------"
                     sh 'mvn clean package'
+                    echo "----------- build completed ----------"
+                }
+            }
+        }
+
+    stage('Test') {
+            steps {
+                script {
+                    echo "----------- unit test started ----------"
+                    sh 'mvn surefire-report:report'
+                    echo "----------- unit test Complted ----------"
                 }
             }
         }
