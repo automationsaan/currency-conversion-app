@@ -5,7 +5,7 @@ pipeline {
         }
     }
 
-#create environment variable for maven path    
+//create environment variable for maven path    
 environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
 }
